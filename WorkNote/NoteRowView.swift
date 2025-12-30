@@ -27,7 +27,7 @@ struct NoteRowView: View {
                         
                         Rectangle()
                             .foregroundColor(.white)
-                            .frame(width: 290, height: 90)
+                            .frame(width: 290, height: 80)
                             .cornerRadius(10)
                         
                         HStack {
@@ -46,7 +46,7 @@ struct NoteRowView: View {
                     
                     if !note.body.isEmpty {
                         Text(note.body)
-                            .font(.subheadline)
+                            .font(.custom("smallfont", size: 12))
                             .foregroundStyle(.secondary)
                             .lineLimit(2)
                     }
@@ -68,3 +68,9 @@ struct NoteRowView: View {
         .buttonStyle(.plain)
     }
 }
+
+
+
+
+
+
