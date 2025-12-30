@@ -18,24 +18,29 @@ struct NoteRowView: View {
         Button(action: onTap) {
             HStack(alignment: .top, spacing: 12) {
                 VStack(alignment: .leading, spacing: 6) {
-                    HStack {
+                   
+                    ZStack {
                         Rectangle()
                             .foregroundColor(.black)
-                            .frame(maxWidth: .infinity, maxHeight: 30)
+                            .frame(width: 300, height: 100)
+                            .cornerRadius(12)
                         
                         Rectangle()
                             .foregroundColor(.white)
-                            .frame(maxWidth: .infinity - 20, maxHeight: 30)
+                            .frame(width: 290, height: 90)
+                            .cornerRadius(10)
                         
-                        Text(note.title.isEmpty ? "Untitled" : note.title)
-                            .font(.headline)
-                            .foregroundStyle(.primary)
-                            .lineLimit(1)
-                        
-                        if note.isFavorite {
-                            Image(systemName: "star.fill")
-                                .font(.caption)
-                                .foregroundStyle(.yellow)
+                        HStack {
+                            Text(note.title.isEmpty ? "Untitled" : note.title)
+                                .font(.headline)
+                                .foregroundStyle(.primary)
+                                .lineLimit(1)
+                            
+                            if note.isFavorite {
+                                Image(systemName: "star.fill")
+                                    .font(.caption)
+                                    .foregroundStyle(.yellow)
+                            }
                         }
                     }
                     
