@@ -19,6 +19,14 @@ struct NoteRowView: View {
             HStack(alignment: .top, spacing: 12) {
                 VStack(alignment: .leading, spacing: 6) {
                     HStack {
+                        Rectangle()
+                            .foregroundColor(.black)
+                            .frame(maxWidth: .infinity, maxHeight: 30)
+                        
+                        Rectangle()
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity - 20, maxHeight: 30)
+                        
                         Text(note.title.isEmpty ? "Untitled" : note.title)
                             .font(.headline)
                             .foregroundStyle(.primary)
