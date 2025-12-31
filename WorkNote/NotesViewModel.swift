@@ -14,6 +14,7 @@ final class NotesViewModel {
     
     private(set) var notes: [Note] = []
     private(set) var filteredNotes: [Note] = []
+    private var totalCount: Int = 0
     private(set) var isLoading = false
     public var errorMessage: String?
     
@@ -65,6 +66,7 @@ final class NotesViewModel {
         let note = Note(title: "New Note", body: "")
         notes.append(note)
         saveNotes()
+        totalCount += 1
         filterNotes()
         colorNotesBasedOnCountOfType() // new
         return note
@@ -140,22 +142,28 @@ final class NotesViewModel {
     private func colorNotesBasedOnCountOfType() {
         var result = notes
         for note in notes {
-            if note.usedCount > 1 {
-                note.popularColor == Color.black
-            } else if note.usedCount > 2 {
-                note.popularColor == Color.blue
-            } else if note.usedCount > 3 {
-                note.popularColor == Color.green
-            } else if note.usedCount > 4 {
-                note.popularColor == Color.orange
-            } else if note.usedCount > 5 {
-                note.popularColor ==
+            if totalCount > 1 {
+                note.popularColor == popularColorRank.black.rawValue
+            } else if totalCount > 2 {
+                note.popularColor == popularColorRank.blue.rawValue
+            } else if totalCount > 3 {
+                note.popularColor == popularColorRank.green.rawValue
+            } else if totalCount > 4 {
+                note.popularColor == popularColorRank.orange.rawValue
+            } else if totalCount > 5 {
+                note.popularColor == popularColorRank.pink.rawValue
             }
             
             // 1. Create Type of differnt note use -> then once they use give a color
             // 2. Based on Type given color to match  -> Guess this is better? 
         }
-        
-//        enum popularColor
+    }
+    
+    enum popularColorRank: Int {
+        case black = 1
+        case blue = 2
+        case green = 3
+        case orange = 4
+        case pink = 5
     }
 }

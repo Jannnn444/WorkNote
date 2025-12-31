@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1EA757662F026C0800F44509 /* WorkNoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA757652F026C0800F44509 /* WorkNoteApp.swift */; };
-		1EA757682F026C0800F44509 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA757672F026C0800F44509 /* ContentView.swift */; };
 		1EA7576A2F026C0A00F44509 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EA757692F026C0A00F44509 /* Assets.xcassets */; };
 		1EA7576D2F026C0A00F44509 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EA7576C2F026C0A00F44509 /* Preview Assets.xcassets */; };
 		1EA757742F026C4500F44509 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA757732F026C4500F44509 /* Note.swift */; };
@@ -22,7 +21,6 @@
 /* Begin PBXFileReference section */
 		1EA757622F026C0800F44509 /* WorkNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EA757652F026C0800F44509 /* WorkNoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkNoteApp.swift; sourceTree = "<group>"; };
-		1EA757672F026C0800F44509 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1EA757692F026C0A00F44509 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1EA7576C2F026C0A00F44509 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1EA757732F026C4500F44509 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
@@ -64,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				1EA757652F026C0800F44509 /* WorkNoteApp.swift */,
-				1EA757672F026C0800F44509 /* ContentView.swift */,
 				1EA757692F026C0A00F44509 /* Assets.xcassets */,
 				1EA7576B2F026C0A00F44509 /* Preview Content */,
 				1EA757732F026C4500F44509 /* Note.swift */,
@@ -157,7 +154,6 @@
 			files = (
 				1EA757B42F050F5200F44509 /* TodoViewModel.swift in Sources */,
 				1EA757762F0380FE00F44509 /* NotesViewModel.swift in Sources */,
-				1EA757682F026C0800F44509 /* ContentView.swift in Sources */,
 				1EA757782F03813F00F44509 /* NoteListView.swift in Sources */,
 				1EA7577A2F03815500F44509 /* NoteRowView.swift in Sources */,
 				1EA757662F026C0800F44509 /* WorkNoteApp.swift in Sources */,
