@@ -46,6 +46,7 @@ final class NotesViewModel {
     init(storageService: StorageServiceProtocol = StorageService()) {
         self.storageService = storageService
         loadNotes()
+        colorNotesBasedOnCountOfType()
     }
     
     func loadNotes() {
@@ -66,9 +67,10 @@ final class NotesViewModel {
         let note = Note(title: "New Note", body: "")
         notes.append(note)
         saveNotes()
+        colorNotesBasedOnCountOfType() // Update colors after creating
         totalCount += 1
         filterNotes()
-        colorNotesBasedOnCountOfType() // new
+        
         return note
     }
     
@@ -80,6 +82,7 @@ final class NotesViewModel {
     
     func deleteNote(_ note: Note) {
         notes.removeAll { $0.id == note.id }
+        colorNotesBasedOnCountOfType() // Update colors after delete
         saveNotes()
         filterNotes()
     }
@@ -140,23 +143,23 @@ final class NotesViewModel {
     }
     
     private func colorNotesBasedOnCountOfType() {
-        var result = notes
+        totalCount = notes.count // Update total count
+        
         for note in notes {
-            if totalCount > 1 {
-                note.popularColor == popularColorRank.black.rawValue
-            } else if totalCount > 2 {
-                note.popularColor == popularColorRank.blue.rawValue
-            } else if totalCount > 3 {
-                note.popularColor == popularColorRank.green.rawValue
-            } else if totalCount > 4 {
-                note.popularColor == popularColorRank.orange.rawValue
-            } else if totalCount > 5 {
-                note.popularColor == popularColorRank.pink.rawValue
+            if totalCount <= 1 {
+                note.popularColor = .black
+            } else if totalCount == 2 {
+                note.popularColor = .blue
+            } else if totalCount == 3 {
+                note.popularColor = .green
+            } else if totalCount == 4 {
+                note.popularColor = .orange
+            } else if totalCount >= 5 {
+                note.popularColor = .pink
             }
-            
-            // 1. Create Type of differnt note use -> then once they use give a color
-            // 2. Based on Type given color to match  -> Guess this is better? 
         }
+        
+        saveNotes() // Save after updating colors
     }
     
     enum popularColorRank: Int {

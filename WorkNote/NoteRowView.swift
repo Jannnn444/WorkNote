@@ -33,7 +33,7 @@ struct NoteRowView: View {
                         HStack {
                             Text(note.title.isEmpty ? "Untitled" : note.title)
                                 .font(.headline)
-                                .foregroundStyle(.primary)
+                                .foregroundStyle(note.popularColor) // Use the color directly
                                 .lineLimit(1)
                             
                             if note.isFavorite {

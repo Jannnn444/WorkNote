@@ -16,10 +16,10 @@ final class Note: Identifiable, Codable {
     var createdAt: Date
     var updatedAt: Date
     var isFavorite: Bool
-    var popularColor: Int
+    var popularColor: Color = .black // Add this property
     var usedCount: Int
     
-    init(id: UUID = UUID(), title: String, body: String, createdAt: Date = Date(), updatedAt: Date = Date(), isFavorite: Bool = false, popularColor: Int = 0, usedCount: Int = 0) {
+    init(id: UUID = UUID(), title: String, body: String, createdAt: Date = Date(), updatedAt: Date = Date(), isFavorite: Bool = false, popularColor: Color = .black , usedCount: Int = 0) {
         self.id = id
         self.title = title
         self.body = body
@@ -42,8 +42,11 @@ final class Note: Identifiable, Codable {
         createdAt = try container.decode(Date.self, forKey: .createdAt)
         updatedAt = try container.decode(Date.self, forKey: .updatedAt)
         isFavorite = try container.decode(Bool.self, forKey: .isFavorite)
-        popularColor = try container.decode(Int.self, forKey: .popularColor)
         usedCount = try container.decode(Int.self, forKey: .usedCount)
+        
+        // Decode color from string
+               let colorString = try container.decode(String.self, forKey: .popularColor)
+               popularColor = stringToColor(colorString)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -54,10 +57,37 @@ final class Note: Identifiable, Codable {
         try container.encode(createdAt, forKey: .createdAt)
         try container.encode(updatedAt, forKey: .updatedAt)
         try container.encode(isFavorite, forKey: .isFavorite)
-        try container.encode(popularColor, forKey: .popularColor)
         try container.encode(usedCount, forKey: .usedCount)
+        
+        // Encode color as string
+               let colorString = colorToString(popularColor)
+               try container.encode(colorString, forKey: .popularColor)
     }
-}
+    
+    private func colorToString(_ color: Color) -> String {
+        switch color {
+        case .black: return "black"
+        case .blue: return "blue"
+        case .green: return "green"
+        case .orange: return "orange"
+        case .pink: return "pink"
+        default: return "black"
+        }
+    }
+    
+    private func stringToColor(_ string: String) -> Color {
+        switch string {
+        case "black": return .black
+        case "blue": return .blue
+        case "green": return .green
+        case "orange": return .orange
+        case "pink": return .pink
+        default: return .black
+        }
+    }
+  }
+
+
 
 protocol StorageServiceProtocol {
     func saveNotes(_ notes: [Note]) throws
@@ -90,6 +120,5 @@ final class StorageService: StorageServiceProtocol {
         decoder.dateDecodingStrategy = .iso8601
         return try decoder.decode([Note].self, from: data)
     }
-    
 }
  
