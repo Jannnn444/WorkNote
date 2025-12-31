@@ -140,10 +140,22 @@ final class NotesViewModel {
     private func colorNotesBasedOnCountOfType() {
         var result = notes
         for note in notes {
-//            if note.usedCount
+            if note.usedCount > 1 {
+                note.popularColor == Color.black
+            } else if note.usedCount > 2 {
+                note.popularColor == Color.blue
+            } else if note.usedCount > 3 {
+                note.popularColor == Color.green
+            } else if note.usedCount > 4 {
+                note.popularColor == Color.orange
+            } else if note.usedCount > 5 {
+                note.popularColor ==
+            }
             
             // 1. Create Type of differnt note use -> then once they use give a color
             // 2. Based on Type given color to match  -> Guess this is better? 
         }
+        
+//        enum popularColor
     }
 }
