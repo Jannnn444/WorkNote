@@ -16,18 +16,22 @@ final class Note: Identifiable, Codable {
     var createdAt: Date
     var updatedAt: Date
     var isFavorite: Bool
+    var popularColor: String
+    var usedCount: Int
     
-    init(id: UUID = UUID(), title: String, body: String, createdAt: Date = Date(), updatedAt: Date = Date(), isFavorite: Bool = false) {
+    init(id: UUID = UUID(), title: String, body: String, createdAt: Date = Date(), updatedAt: Date = Date(), isFavorite: Bool = false, popularColor: String = "", usedCount: Int = 0) {
         self.id = id
         self.title = title
         self.body = body
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.isFavorite = isFavorite
+        self.popularColor = popularColor
+        self.usedCount = usedCount
     }
     
     enum CodingKeys: String, CodingKey {
-        case id, title, body, createdAt, updatedAt, isFavorite
+        case id, title, body, createdAt, updatedAt, isFavorite, popularColor, usedCount
     }
     
     required init(from decoder: Decoder) throws {
@@ -38,6 +42,8 @@ final class Note: Identifiable, Codable {
         createdAt = try container.decode(Date.self, forKey: .createdAt)
         updatedAt = try container.decode(Date.self, forKey: .updatedAt)
         isFavorite = try container.decode(Bool.self, forKey: .isFavorite)
+        popularColor = try container.decode(String.self, forKey: .popularColor)
+        usedCount = try container.decode(Int.self, forKey: .usedCount)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -48,6 +54,8 @@ final class Note: Identifiable, Codable {
         try container.encode(createdAt, forKey: .createdAt)
         try container.encode(updatedAt, forKey: .updatedAt)
         try container.encode(isFavorite, forKey: .isFavorite)
+        try container.encode(popularColor, forKey: .popularColor)
+        try container.encode(usedCount, forKey: .usedCount)
     }
 }
 

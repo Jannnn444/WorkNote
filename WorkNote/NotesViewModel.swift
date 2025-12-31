@@ -66,6 +66,7 @@ final class NotesViewModel {
         notes.append(note)
         saveNotes()
         filterNotes()
+        colorNotesBasedOnCountOfType() // new
         return note
     }
     
@@ -134,5 +135,15 @@ final class NotesViewModel {
         }
         
         filteredNotes = result
+    }
+    
+    private func colorNotesBasedOnCountOfType() {
+        var result = notes
+        for note in notes {
+//            if note.usedCount
+            
+            // 1. Create Type of differnt note use -> then once they use give a color
+            // 2. Based on Type given color to match  -> Guess this is better? 
+        }
     }
 }
