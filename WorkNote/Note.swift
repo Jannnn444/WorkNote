@@ -45,7 +45,7 @@ final class Note: Identifiable, Codable {
         updatedAt = try container.decode(Date.self, forKey: .updatedAt)
         isFavorite = try container.decode(Bool.self, forKey: .isFavorite)
         usedCount = try container.decode(Int.self, forKey: .usedCount)
-        noteStatus = try container.decode(Int.self, forKey: noteStatus)
+        noteStatus = try container.decode(Int.self, forKey: .noteStatus)
         
         // Decode color from string
                let colorString = try container.decode(String.self, forKey: .popularColor)
@@ -61,10 +61,11 @@ final class Note: Identifiable, Codable {
         try container.encode(updatedAt, forKey: .updatedAt)
         try container.encode(isFavorite, forKey: .isFavorite)
         try container.encode(usedCount, forKey: .usedCount)
+        try container.encode(noteStatus, forKey: .noteStatus)
         
         // Encode color as string
-               let colorString = colorToString(popularColor)
-               try container.encode(colorString, forKey: .popularColor)
+        let colorString = colorToString(popularColor)
+        try container.encode(colorString, forKey: .popularColor)
     }
     
     private func colorToString(_ color: Color) -> String {
