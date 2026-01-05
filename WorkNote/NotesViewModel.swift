@@ -46,7 +46,7 @@ final class NotesViewModel {
     init(storageService: StorageServiceProtocol = StorageService()) {
         self.storageService = storageService
         loadNotes()
-        colorNotesBasedOnCountOfType()
+//        colorNotesBasedOnCountOfType()
     }
     
     func loadNotes() {
@@ -67,7 +67,7 @@ final class NotesViewModel {
         let note = Note(title: "New Note", body: "")
         notes.append(note)
         saveNotes()
-        colorNotesBasedOnCountOfType() // Update colors after creating
+//        colorNotesBasedOnCountOfType() // Update colors after creating
         totalCount += 1
         filterNotes()
         
@@ -82,7 +82,7 @@ final class NotesViewModel {
     
     func deleteNote(_ note: Note) {
         notes.removeAll { $0.id == note.id }
-        colorNotesBasedOnCountOfType() // Update colors after delete
+//        colorNotesBasedOnCountOfType() // Update colors after delete
         saveNotes()
         filterNotes()
     }
@@ -142,25 +142,25 @@ final class NotesViewModel {
         filteredNotes = result
     }
     
-    private func colorNotesBasedOnCountOfType() {
-        totalCount = notes.count // Update total count
-        
-        for note in notes {
-            if totalCount <= 1 {
-                note.popularColor = .black
-            } else if totalCount == 2 {
-                note.popularColor = .blue
-            } else if totalCount == 3 {
-                note.popularColor = .green
-            } else if totalCount == 4 {
-                note.popularColor = .orange
-            } else if totalCount >= 5 {
-                note.popularColor = .pink
-            }
-        }
-        
-        saveNotes() // Save after updating colors
-    }
+//    private func colorNotesBasedOnCountOfType() {
+//        totalCount = notes.count // Update total count
+//        
+//        for note in notes {
+//            if totalCount <= 1 {
+//                note.popularColor = .black
+//            } else if totalCount == 2 {
+//                note.popularColor = .blue
+//            } else if totalCount == 3 {
+//                note.popularColor = .green
+//            } else if totalCount == 4 {
+//                note.popularColor = .orange
+//            } else if totalCount >= 5 {
+//                note.popularColor = .pink
+//            }
+//        }
+//        
+//        saveNotes() // Save after updating colors
+//    }
     
     enum popularColorRank: Int {
         case black = 1
