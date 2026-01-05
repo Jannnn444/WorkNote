@@ -15,7 +15,6 @@
 		1EA757782F03813F00F44509 /* NoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA757772F03813F00F44509 /* NoteListView.swift */; };
 		1EA7577A2F03815500F44509 /* NoteRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA757792F03815500F44509 /* NoteRowView.swift */; };
 		1EA7577C2F03817200F44509 /* NoteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA7577B2F03817200F44509 /* NoteDetailView.swift */; };
-		1EA757B42F050F5200F44509 /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA757B32F050F5200F44509 /* TodoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +27,6 @@
 		1EA757772F03813F00F44509 /* NoteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListView.swift; sourceTree = "<group>"; };
 		1EA757792F03815500F44509 /* NoteRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRowView.swift; sourceTree = "<group>"; };
 		1EA7577B2F03817200F44509 /* NoteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDetailView.swift; sourceTree = "<group>"; };
-		1EA757B32F050F5200F44509 /* TodoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +67,6 @@
 				1EA757772F03813F00F44509 /* NoteListView.swift */,
 				1EA757792F03815500F44509 /* NoteRowView.swift */,
 				1EA7577B2F03817200F44509 /* NoteDetailView.swift */,
-				1EA757B32F050F5200F44509 /* TodoViewModel.swift */,
 			);
 			path = WorkNote;
 			sourceTree = "<group>";
@@ -152,7 +149,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EA757B42F050F5200F44509 /* TodoViewModel.swift in Sources */,
 				1EA757762F0380FE00F44509 /* NotesViewModel.swift in Sources */,
 				1EA757782F03813F00F44509 /* NoteListView.swift in Sources */,
 				1EA7577A2F03815500F44509 /* NoteRowView.swift in Sources */,
