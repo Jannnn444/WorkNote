@@ -18,8 +18,9 @@ final class Note: Identifiable, Codable {
     var isFavorite: Bool
     var popularColor: Color = .black // Add this property
     var usedCount: Int
+    var noteStatus: Int
     
-    init(id: UUID = UUID(), title: String, body: String, createdAt: Date = Date(), updatedAt: Date = Date(), isFavorite: Bool = false, popularColor: Color = .black , usedCount: Int = 0) {
+    init(id: UUID = UUID(), title: String, body: String, createdAt: Date = Date(), updatedAt: Date = Date(), isFavorite: Bool = false, popularColor: Color = .black , usedCount: Int = 0, noteStatus: Int = 0) {
         self.id = id
         self.title = title
         self.body = body
@@ -28,10 +29,11 @@ final class Note: Identifiable, Codable {
         self.isFavorite = isFavorite
         self.popularColor = popularColor
         self.usedCount = usedCount
+        self.noteStatus = noteStatus
     }
     
     enum CodingKeys: String, CodingKey {
-        case id, title, body, createdAt, updatedAt, isFavorite, popularColor, usedCount
+        case id, title, body, createdAt, updatedAt, isFavorite, popularColor, usedCount, noteStatus
     }
     
     required init(from decoder: Decoder) throws {
@@ -43,6 +45,7 @@ final class Note: Identifiable, Codable {
         updatedAt = try container.decode(Date.self, forKey: .updatedAt)
         isFavorite = try container.decode(Bool.self, forKey: .isFavorite)
         usedCount = try container.decode(Int.self, forKey: .usedCount)
+        noteStatus = try container.decode(Int.self, forKey: noteStatus)
         
         // Decode color from string
                let colorString = try container.decode(String.self, forKey: .popularColor)

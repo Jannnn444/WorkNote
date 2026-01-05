@@ -51,6 +51,9 @@ struct NoteRowView: View {
                             .lineLimit(2)
                     }
                     
+                    // NoteStatus
+                    
+                    
                     Text(note.updatedAt, style: .relative)
                         .font(.caption)
                         .foregroundStyle(.tertiary)
